@@ -31,6 +31,7 @@
         <div class="row">
             <div class="d-grid">
                 <button class="btn btn-warning">Update</button>
+                <a href="{{ url('/products')}}" class="btn btn-danger">Cancel</a>
             </div>
         </div>
     </form>
