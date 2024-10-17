@@ -35,4 +35,9 @@
             <input type="text" name="updated_at" class="form-control" placeholder="Updated At" value="{{ $product->updated_at }}" readonly>
         </div>
     </div>
+    <div class="row">
+        <div class="d-grid">           
+            <a href="{{ url('/products')}}" class="btn btn-danger">Cancel</a>
+        </div>
+    </div>
 @endsection
