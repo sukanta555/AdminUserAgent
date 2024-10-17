@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AgentController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,33 +15,48 @@ use App\Http\Controllers\AgentController;
 |
 */
 
+// Public route
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Routes for guest users
+Route::controller(AuthController::class)->group(function () {
+    Route::get('register', 'register')->name('register');
+    Route::post('register', 'registerSave')->name('register.save');
 
+    Route::get('login', 'login')->name('login');
+    Route::post('login', 'loginAction')->name('login.action');
+});
+
+// Routes for authenticated users
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // Shared dashboard route for all authenticated users
+    Route::get('dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    // Admin-only routes
+    Route::middleware('admin')->group(function () {
+        // Product management routes for admins only
+        Route::controller(ProductController::class)->prefix('products')->group(function () {
+            Route::get('create', 'create')->name('products.create');
+            Route::post('store', 'store')->name('products.store');
+            Route::get('edit/{id}', 'edit')->name('products.edit');
+            Route::put('edit/{id}', 'update')->name('products.update');
+            Route::delete('destroy/{id}', 'destroy')->name('products.destroy');
+        });
+    });
+
+    // Common product viewing routes for all authenticated users
+    Route::controller(ProductController::class)->prefix('products')->group(function () {
+        Route::get('', 'index')->name('products');
+        Route::get('show/{id}', 'show')->name('products.show');
+    });
+
+    // Profile route for authenticated users
+    Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
+
+    // Logout route for authenticated users
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 });
-
-//Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
-
-//Route::get('/agent/dashboard',[AgentController::class,'dashboard'])->name('agent.dashboard');
-
-//admin routes
-Route::middleware(['auth','role:admin'])->group(function () {
-    Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
-});
-
-
-//agent routes
-Route::middleware(['auth','role:agent'])->group(function () {
-    Route::get('/agent/dashboard',[AgentController::class,'dashboard'])->name('agent.dashboard');
-});
-
-require __DIR__.'/auth.php';
