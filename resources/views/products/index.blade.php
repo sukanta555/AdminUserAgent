@@ -4,9 +4,11 @@
 @section('contents')
     <div class="d-flex align-items-center justify-content-between">
         <h1 class="mb-0">List Product</h1>
-        @if (Auth::user()->is_admin === 'admin' || 'user')
+        {{-- @if (Auth::user()->is_admin !== 'agent') --}}
+        @if (Auth::user()->is_admin === 'admin' || Auth::user()->is_admin === 'user')
             <a href="{{ route('products.create') }}" class="btn btn-primary">Add Product</a>
-        @endif
+        @endif   
+        {{-- {{ dd(Auth::user()) }} --}}
     </div>
     <hr />
     @if(Session::has('success'))

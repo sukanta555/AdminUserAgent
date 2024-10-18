@@ -27,6 +27,7 @@
         <div class="row">
             <div class="d-grid">
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="{{ url('/products')}}" class="btn btn-danger">Cancel</a>
             </div>
         </div>
     </form>
