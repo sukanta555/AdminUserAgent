@@ -61,9 +61,8 @@
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                     @auth
                         <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Log in</a>
-
+                    @else                    
+                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Log in</a>                        
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Register</a>
                         @endif
@@ -163,25 +162,25 @@
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/img-1.png')}}"></div>
                             <h3 class="types_text">TYPES OF COFFEE</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/img-2.png')}}"></div>
                             <h3 class="types_text">BEAN VARIETIES</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/img-3.png')}}"></div>
                             <h3 class="types_text">COFFEE & PASTRY</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/img-4.png')}}"></div>
                             <h3 class="types_text">COFFEE TO GO</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                     </div>
                     </div>
@@ -193,25 +192,25 @@
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/img-1.png')}}"></div>
                             <h3 class="types_text">TYPES OF COFFEE</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/img-2.png')}}"></div>
                             <h3 class="types_text">BEAN VARIETIES</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/img-3.png')}}"></div>
                             <h3 class="types_text">COFFEE & PASTRY</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/img-4.png')}}"></div>
                             <h3 class="types_text">COFFEE TO GO</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                     </div>
                     </div>
@@ -223,25 +222,25 @@
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/img-1.png')}}"></div>
                             <h3 class="types_text">TYPES OF COFFEE</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/img-2.png')}}"></div>
                             <h3 class="types_text">BEAN VARIETIES</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/img-3.png')}}"></div>
                             <h3 class="types_text">COFFEE & PASTRY</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/img-4.png')}}"></div>
                             <h3 class="types_text">COFFEE TO GO</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                     </div>
                     </div>
@@ -276,25 +275,25 @@
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/food-1.jpg')}}"></div>
                             <h3 class="types_text">TYPES OF COFFEE</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/food-2.jpg')}}"></div>
                             <h3 class="types_text">BEAN VARIETIES</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/food-3.jpg')}}"></div>
                             <h3 class="types_text">COFFEE & PASTRY</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/food-4.jpg')}}"></div>
                             <h3 class="types_text">COFFEE TO GO</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                     </div>
                     </div>
@@ -306,25 +305,25 @@
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/food-1.jpg')}}"></div>
                             <h3 class="types_text">TYPES OF COFFEE</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/food-2.jpg')}}"></div>
                             <h3 class="types_text">BEAN VARIETIES</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/food-3.jpg')}}"></div>
                             <h3 class="types_text">COFFEE & PASTRY</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/food-4.jpg')}}"></div>
                             <h3 class="types_text">COFFEE TO GO</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                     </div>
                     </div>
@@ -336,25 +335,25 @@
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/food-1.jpg')}}"></div>
                             <h3 class="types_text">TYPES OF COFFEE</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/food-2.jpg')}}"></div>
                             <h3 class="types_text">BEAN VARIETIES</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/food-3.jpg')}}"></div>
                             <h3 class="types_text">COFFEE & PASTRY</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="coffee_img"><img src="{{ asset('food_assets/images/food-4.jpg')}}"></div>
                             <h3 class="types_text">COFFEE TO GO</h3>
                             <p class="looking_text">looking at its layout. The point of</p>
-                            <div class="read_bt"><a href="#">Read More</a></div>
+                            <div class="read_bt"><a href="#">Order Now</a></div>
                         </div>
                     </div>
                     </div>
