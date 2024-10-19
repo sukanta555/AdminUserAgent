@@ -27,12 +27,37 @@ public function create()
 /**
  * Store a newly created resource in storage.
  */
-public function store(Request $request)
+/*public function store(Request $request)
 {
     Product::create($request->all());
+    return redirect()->route('products')->with('success', 'Product added successfully');
+}*/
+
+public function store(Request $request)
+{
+    // Validate the request data
+    $validatedData = $request->validate([
+        'title' => 'required|string|max:255',
+        'product_name' => 'required|string|max:255',
+        'product_code' => 'required|string|max:255',
+        'price' => 'required|numeric',
+        'description' => 'nullable|string',
+        'product_img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation for the image
+    ]);
+
+    // Check if the request contains a file
+    if ($request->hasFile('product_img')) {
+        // Store the file in the 'public/images' directory
+        $filePath = $request->file('product_img')->store('images', 'public');
+        $validatedData['product_img'] = $filePath;
+    }
+
+    // Create a new product
+    Product::create($validatedData);
 
     return redirect()->route('products')->with('success', 'Product added successfully');
 }
+
 
 /**
  * Display the specified resource.

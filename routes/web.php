@@ -60,3 +60,17 @@ Route::middleware('auth')->group(function () {
     // Logout route for authenticated users
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 });
+
+
+ // symlink create
+Route::get('/storage-link', function() {
+    $targetFolder = storage_path('app/public');
+    $linkFolder = public_path('storage');
+    
+    if (!file_exists($linkFolder)) {
+        symlink($targetFolder, $linkFolder);
+        return 'Storage link created successfully!';
+    } else {
+        return 'The "storage" link already exists.';
+    }
+});
