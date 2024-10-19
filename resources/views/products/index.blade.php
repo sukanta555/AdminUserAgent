@@ -20,6 +20,7 @@
         <thead class="table-primary">
             <tr>
                 <th>#</th>
+                <th>Image</th>
                 <th>Title</th>
                 <th>Price</th>
                 <th>Product Code</th>
@@ -32,6 +33,13 @@
                 @foreach($product as $rs)
                     <tr>
                         <td class="align-middle">{{ $loop->iteration }}</td>
+                        <td class="align-middle">
+                            @if ($rs->product_img)
+                            <img src="{{ asset('storage/' . $rs->product_img) }}" alt="Product Image" width="60">
+                            @else
+                                <span>No Image</span>
+                            @endif
+                        </td>
                         <td class="align-middle">{{ $rs->title }}</td>
                         <td class="align-middle">{{ $rs->price }}</td>
                         <td class="align-middle">{{ $rs->product_code }}</td>
