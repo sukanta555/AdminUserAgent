@@ -85,47 +85,6 @@ public function edit(string $id)
  * Update the specified resource in storage.
  */
 /*
-public function update(Request $request, string $id)
-{
-    // Validate the request data
-    $validatedData = $request->validate([
-        'title' => 'required|string|max:255',
-        'product_name' => 'required|string|max:255',
-        'product_code' => 'required|string|max:255',
-        'price' => 'required|numeric',
-        'description' => 'nullable|string',
-        'product_img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
-
-    // Find the product
-    $product = Product::findOrFail($id);
-
-    // Check if a new image file is uploaded
-    if ($request->hasFile('product_img')) {
-        // Log the uploaded file information
-        Log::info('New image uploaded: ' . $request->file('product_img')->getClientOriginalName());
-
-        // Store the new image in the 'public/images' directory
-        $filePath = $request->file('product_img')->store('images', 'public');
-
-        // Optionally delete the old image file
-        if ($product->product_img && Storage::exists('public/' . $product->product_img)) {
-            Storage::delete('public/' . $product->product_img);
-        }
-
-        // Add the new image path to the validated data
-        $validatedData['product_img'] = $filePath;
-    } else {
-        // Log if no new image is uploaded
-        Log::info('No new image uploaded. Retaining old image.');
-        $validatedData['product_img'] = $product->product_img;
-    }
-
-    // Update the product with the validated data
-    $product->update($validatedData);
-
-    return redirect()->route('products')->with('success', 'Product updated successfully');
-}*/
 public function update(Request $request, $id)
 {
     $product = Product::findOrFail($id);
@@ -176,6 +135,38 @@ public function update(Request $request, $id)
     Log::info('Product after update: ', $product->toArray());
 
     return redirect()->route('products')->with('success', 'Product updated successfully');
+}
+*/
+
+public function update(Request $request, $id)
+{
+    // Validation rules
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'product_name' => 'required|string|max:255',
+        'product_code' => 'required|string|max:255',
+        'price' => 'required|numeric',
+        'description' => 'required|string',
+        'product_img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+    // Find product by ID
+    $product = Product::findOrFail($id);
+
+    // Update product details
+    $product->title = $request->title;
+    $product->product_name = $request->product_name;
+    $product->product_code = $request->product_code;
+    $product->price = $request->price;
+    $product->description = $request->description;
+
+    if ($request->hasFile('product_img')) {
+        $product->product_img = $request->file('product_img')->store('products', 'public');
+    }
+
+    $product->save();
+
+    return redirect()->route('products')->with('success', 'Product updated successfully!');
 }
 
 /**
