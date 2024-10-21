@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
             Route::get('edit/{id}', 'edit')->name('products.edit');
             Route::put('edit/{id}', 'update')->name('products.update');
             Route::delete('destroy/{id}', 'destroy')->name('products.destroy');
+            Route::patch('products/restore/{id}', 'restore')->name('products.restore');
         });
     });
 

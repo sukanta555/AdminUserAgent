@@ -38,7 +38,7 @@
             </div>
             <div class="col mb-3">
                 <label class="form-label">Product Name</label>
-                <input type="text" name="product_name" class="form-control" placeholder="Product Name" value="{{ old('product_name', $product->product_name) }}" required>
+                <input type="text" name="product_name" class="form-control" placeholder="Product Name" value="{{ old('product_name', $product->product_name) }}">
                 @error('product_name')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror

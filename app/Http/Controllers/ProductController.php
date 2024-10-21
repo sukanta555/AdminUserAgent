@@ -13,7 +13,15 @@ class ProductController extends Controller
  */
 public function index()
 {
+    
+    // Fetch only products that are not soft deleted
     $product = Product::orderBy('created_at', 'DESC')->get();
+
+     // Fetch both non-deleted and soft-deleted products
+   // $product = Product::withTrashed()->orderBy('created_at', 'DESC')->get();
+
+   // Fetch only soft-deleted products
+    //$product = Product::onlyTrashed()->orderBy('created_at', 'DESC')->get();
 
     return view('products.index', compact('product'));
 }
@@ -176,8 +184,18 @@ public function destroy(string $id)
 {
     $product = Product::findOrFail($id);
 
-    $product->delete();
+    $product->delete(); // This will now perform a soft delete
 
-    return redirect()->route('products')->with('success', 'product deleted successfully');
+    return redirect()->route('products')->with('success', 'Product deleted successfully');
 }
+// data restore
+public function restore(string $id)
+{
+    $product = Product::withTrashed()->findOrFail($id);
+
+    $product->restore();
+
+    return redirect()->route('products')->with('success', 'Product restored successfully');
+}
+
 }
