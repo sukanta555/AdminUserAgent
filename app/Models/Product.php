@@ -11,10 +11,10 @@ class Product extends Model
     protected $fillable = [
         'title',
         'product_name',
-        'product_img',
         'product_code',
         'price',
         'description',
+        'product_img',
         'is_admin', // Add this field
     ];
 }

@@ -84,6 +84,7 @@ public function edit(string $id)
 /**
  * Update the specified resource in storage.
  */
+/*
 public function update(Request $request, string $id)
 {
     // Validate the request data
@@ -122,6 +123,57 @@ public function update(Request $request, string $id)
 
     // Update the product with the validated data
     $product->update($validatedData);
+
+    return redirect()->route('products')->with('success', 'Product updated successfully');
+}*/
+public function update(Request $request, $id)
+{
+    $product = Product::findOrFail($id);
+
+    // Validate incoming request
+    $validatedData = $request->validate([
+        'title' => 'required|string|max:255',
+        'product_name' => 'required|string|max:255',
+        'product_code' => 'required|string|max:255',
+        'price' => 'required|numeric',
+        'description' => 'nullable|string',
+        'product_img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5000',
+    ]);
+
+    // Log the request data for debugging
+    Log::info('Request data: ', $request->all());
+
+    // Check if new image is uploaded
+    if ($request->hasFile('product_img')) {
+        Log::info('New image is uploaded.');
+
+        // Delete old image if exists
+        if ($product->product_img && Storage::disk('public')->exists($product->product_img)) {
+            Log::info('Deleting old image: ' . $product->product_img);
+            Storage::disk('public')->delete($product->product_img);
+        }
+
+        // Upload new image
+        $filePath = $request->file('product_img')->store('images', 'public');
+        Log::info('New image uploaded: ' . $filePath);
+
+        // Set new image path in validated data
+        $validatedData['product_img'] = $filePath;
+    } else {
+        Log::info('No new image uploaded. Retaining old image.');
+
+        // Retain the old image if no new image is uploaded
+        $validatedData['product_img'] = $product->product_img;
+    }
+
+    // Before updating, log the validated data
+    Log::info('Validated data before update: ', $validatedData);
+
+    // Update product with validated data
+    $product->update($validatedData);
+
+    // After update, log the product data
+    Log::info('Product after update: ', $product->toArray());
 
     return redirect()->route('products')->with('success', 'Product updated successfully');
 }

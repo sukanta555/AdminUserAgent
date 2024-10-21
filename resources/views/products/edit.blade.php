@@ -32,10 +32,10 @@
             <div class="mb-3">
                 <label for="product_img">Product Image</label>
                 <input type="file" name="product_img" class="form-control">
-                @if ($product->product_img) {{-- Check if there's an existing image --}}
+                @if ($product->product_img) 
                     <img src="{{ asset('storage/' . $product->product_img) }}" alt="Product Image" style="width: 100px; margin-top: 10px;">
                 @endif
-            </div>
+            </div> 
             <div class="col mb-3">
                 <label class="form-label">Description</label>
                 <textarea class="form-control" name="description" placeholder="Description">{{ $product->description }}</textarea>
