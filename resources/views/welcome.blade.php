@@ -258,15 +258,15 @@
     <!-- coffee section end -->
 
     <!-- Food section start -->
-    <div class="coffee_section layout_padding">
+    <div class="coffee_section_2 layout_padding">
         <div class="container">
         <div class="row">
-            <h1 class="coffee_taital">OUR FOOD's OFFER</h1>
+            <h1 class="coffee_taital_2">OUR FOOD's OFFER</h1>
             <div class="bulit_icon"><img src="{{ asset('food_assets/images/bulit-icon.png')}}"></div>
         </div>
         </div>
         <div class="coffee_section_2">
-        <div id="main_slider" class="carousel slide" data-ride="carousel">
+        <div id="main_slider_2" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="container-fluid">
@@ -359,10 +359,10 @@
                     </div>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#main_slider_2" role="button" data-slide="prev">
             <i class="fa fa-arrow-left"></i>
             </a>
-            <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#main_slider_2" role="button" data-slide="next">
             <i class="fa fa-arrow-right"></i>
             </a>
         </div>
@@ -370,7 +370,7 @@
     </div>
     <!-- foods section end -->
 
-    <!-- footer section start -->
+    <!-- Second footer section start -->
     <div class="footer_section layout_padding mt-7">
         {{-- <div class="container">
         <div class="row">
@@ -399,7 +399,8 @@
         </div>
         </div> --}}
     </div>
-    <!-- footer section end -->
+    <!-- Second footer section end -->
+
     <!-- copyright section start -->
     <div class="copyright_section">
         <div class="container">

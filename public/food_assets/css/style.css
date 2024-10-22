@@ -451,6 +451,17 @@ button {
     padding-bottom: 0px;
 }
 
+.coffee_taital_2 {
+    width: 100%;
+    float: left;
+    font-size: 40px;
+    color: #3b3b3b;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 0px;
+}
+
 .coffee_section_2 {
     width: 90%;
     margin: 0 auto;
@@ -516,6 +527,10 @@ button {
     left: -50px;
     top: 95px;
 }
+#main_slider_2 a.carousel-control-prev {
+    left: -50px;
+    top: 95px;
+}
 
 #main_slider a.carousel-control-next {
     right: -50px;
@@ -524,8 +539,24 @@ button {
     background-color: #4a4949;
 }
 
+#main_slider_2 a.carousel-control-next {
+    right: -50px;
+    top: 95px;
+    color: #fefefd;
+    background-color: #4a4949;
+}
+
 #main_slider .carousel-control-next,
+#main_slider_2 .carousel-control-next,
 #main_slider .carousel-control-prev {
+    width: 55px;
+    height: 55px;
+    opacity: 1;
+    font-size: 16px;
+    color: #4a4949;
+    background-color: #efefef;
+}
+#main_slider_2 .carousel-control-prev {
     width: 55px;
     height: 55px;
     opacity: 1;
@@ -535,9 +566,16 @@ button {
 }
 
 #main_slider .carousel-control-next:focus,
+#main_slider_2 .carousel-control-next:focus,
 #main_slider .carousel-control-next:hover,
+#main_slider_2 .carousel-control-next:hover,
 #main_slider .carousel-control-prev:focus,
+#main_slider_2 .carousel-control-prev:focus,
 #main_slider .carousel-control-prev:hover {
+    color: #fefefd;
+    background-color: #4a4949;
+}
+#main_slider_2 .carousel-control-prev:hover {
     color: #fefefd;
     background-color: #4a4949;
 }
